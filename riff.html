@@ -42,12 +42,52 @@
               1. Hafta
               <audio controls src="audios/riffler/the_trooper_01.mp3"></audio>
             </li>
+          </ul>
+        </section>
+
+        <hr>
+        <section>
+          <h3 class="song-title">Sir</h3>
+          <h5 class="song-subtitle">Pentagram</h5>
+          <div id="tab_sir"></div>
+          <script>
+            fetch('templates/tablar/sir.html')
+            .then(res => res.text())
+            .then(data => {
+              document.getElementById('tab_sir').innerHTML = data;
+            });
+          </script>
+          <p class="song-tabs"><a href="https://www.songsterr.com/a/wsa/pentagram-sir-tab-s998755" target="_blank">Tab</a></p>
+          <ul>
             <li>
-              2. Hafta
-              <audio controls src="#"></audio>
+              1. Hafta
+              <audio controls src="audios/riffler/sir_01.mp3"></audio>
             </li>
           </ul>
         </section>
+
+        <hr>
+        <section>
+          <h3 class="song-title">Taşikardi</h3>
+          <h5 class="song-subtitle">Kaptan Kadavra</h5>
+          <div id="tab_tasikardi"></div>
+          <script>
+            fetch('templates/tablar/tasikardi.html')
+            .then(res => res.text())
+            .then(data => {
+              document.getElementById('tab_tasikardi').innerHTML = data;
+            });
+          </script>
+          <p class="song-tabs"><a href="https://www.songsterr.com/a/wsa/kaptan-kadavra-tasikardi-tab-s1482557" target="_blank">Tab</a></p>
+          <ul>
+            <li>
+              1. Hafta
+              <audio controls src="audios/riffler/tasikardi_01.mp3"></audio>
+            </li>
+          </ul>
+        </section>
+
+
       </div>
       <!-- Diğer riffler de aynı yapıda eklenir -->
     </div>
