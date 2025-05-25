@@ -58,3 +58,4 @@ document.addEventListener('play', function(event) {
         currentlyPlayingAudioElement = newAudio;
     }
 }, true); // 'true' parametresi olayın capturing phase'de yakalanmasını sağlar.
+

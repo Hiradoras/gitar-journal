@@ -13,6 +13,20 @@
     <link rel="stylesheet" href="styles/teknikler.css" />
   </head>
   <body>
+     <!-- background -->
+ <div id="background-guitar"></div>
+<script>
+  fetch('background-guitar.html')
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById('background-guitar').innerHTML = html;
+
+      // JS dosyasını manuel olarak ekleyelim çünkü script tagları fetch ile gelince çalışmaz
+      const script = document.createElement('script');
+      script.src = 'scripts/background-guitar.js';
+      document.body.appendChild(script);
+    });
+</script>
     <div id="navbar"></div>
     <script>
       fetch('navbar.html')
