@@ -13,7 +13,9 @@
     <link rel="stylesheet" href="styles/riff.css" />
   </head>
   <body>
-    <div id="navbar"></div>
+
+    
+    <div id="navbar">
     <script>
       fetch('navbar.html')
         .then(res => res.text())
@@ -21,77 +23,87 @@
           document.getElementById('navbar').innerHTML = data;
         });
     </script>
+    </div>
 
 
-    <div class="audio-list" id="riff-container"></div>
+    <div class="audio-list" id="riff-container">
 
-<script>
-  fetch('jsons/riffs.json')
-    .then(response => response.json())
-    .then(data => {
-      const container = document.getElementById('riff-container');
+      <script>
+        fetch('jsons/riffs.json')
+          .then(response => response.json())
+          .then(data => {
+            const container = document.getElementById('riff-container');
 
-      data.forEach(song => {
-        const section = document.createElement('section');
+            data.forEach(song => {
+              const section = document.createElement('section');
 
-        // Başlıklar
-        const title = `<h3 class="song-title">${song.title}</h3>`;
-        const artist = `<h5 class="song-subtitle">${song.artist}</h5>`;
-        const tabDivId = `tab_${song.title.toLowerCase().replaceAll(' ', '_')}`;
-        const tabDiv = `<div id="${tabDivId}"></div>`;
+              // Başlıklar
+              const title = `<h3 class="song-title">${song.title}</h3>`;
+              const artist = `<h5 class="song-subtitle">${song.artist}</h5>`;
+              const tabDivId = `tab_${song.title.toLowerCase().replaceAll(' ', '_')}`;
+              const tabDiv = `<div id="${tabDivId}"></div>`;
 
-        // Tab HTML'i dinamik yükleme scripti
-        const script = document.createElement('script');
-        script.textContent = `
-          fetch('${song.tabHtml}')
-            .then(res => res.text())
-            .then(data => {
-              document.getElementById('${tabDivId}').innerHTML = data;
+              // Tab HTML'i dinamik yükleme scripti
+              const script = document.createElement('script');
+              script.textContent = `
+                fetch('${song.tabHtml}')
+                  .then(res => res.text())
+                  .then(data => {
+                    document.getElementById('${tabDivId}').innerHTML = data;
+                  });
+              `;
+
+              // Tab linki
+              const tabLink = `<p class="song-tabs"><a href="${song.tabUrl}" target="_blank">Tab</a></p>`;
+
+              // Haftalık kayıtlar
+              let weeksHTML = '<ul>';
+              song.weeks.forEach(week => {
+                weeksHTML += `
+                  <li>
+                    ${week.label}
+                    <audio controls src="${week.audio}"></audio>
+                  </li>
+                `;
+              });
+              weeksHTML += '</ul>';
+
+              // Section içeriğini birleştir
+              section.innerHTML = title + artist + tabDiv + tabLink + weeksHTML;
+              section.appendChild(script); // Scripti sonradan ekle
+
+              // Bölmeyi ekle
+              container.appendChild(section);
+
+              // Ayırıcı çizgi
+              container.appendChild(document.createElement('hr'));
             });
-        `;
 
-        // Tab linki
-        const tabLink = `<p class="song-tabs"><a href="${song.tabUrl}" target="_blank">Tab</a></p>`;
+            // --- IMPORTANT CHANGE STARTS HERE ---
 
-        // Haftalık kayıtlar
-        let weeksHTML = '<ul>';
-        song.weeks.forEach(week => {
-          weeksHTML += `
-            <li>
-              ${week.label}
-              <audio controls src="${week.audio}"></audio>
-            </li>
-          `;
-        });
-        weeksHTML += '</ul>';
+            // Now that all audio elements are in the DOM, select them and add event listeners
+            const audios = document.querySelectorAll("audio");
+            
+            audios.forEach(audio => {
+              audio.addEventListener("play", () => {
+                audios.forEach(otherAudio => {
+                  if (otherAudio !== audio) {
+                    otherAudio.pause();
+                    otherAudio.currentTime = 0; // İsteğe bağlı: çalan şarkıyı başa sarar
+                  }
+                });
+              });
+            });
 
-        // Section içeriğini birleştir
-        section.innerHTML = title + artist + tabDiv + tabLink + weeksHTML;
-        section.appendChild(script); // Scripti sonradan ekle
+            // --- IMPORTANT CHANGE ENDS HERE ---
 
-        // Bölmeyi ekle
-        container.appendChild(section);
-
-        // Ayırıcı çizgi
-        container.appendChild(document.createElement('hr'));
-      });
-    });
-</script>
-    <script>
-      // Sayfadaki tüm audio elementlerini seç
-      const audios = document.querySelectorAll("audio");
-    
-      audios.forEach(audio => {
-        audio.addEventListener("play", () => {
-          audios.forEach(otherAudio => {
-            if (otherAudio !== audio) {
-              otherAudio.pause();
-              otherAudio.currentTime = 0; // İsteğe bağlı: çalan şarkıyı başa sarar
-            }
+          })
+          .catch(err => {
+            document.getElementById('riff-container').innerHTML = "<p>Riffler yüklenemedi.</p>";
+            console.error("Riff verileri yüklenemedi:", err);
           });
-        });
-      });
-    </script>
+      </script>
+    </div>
     
 
     <script

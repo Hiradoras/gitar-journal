@@ -25,63 +25,63 @@
       <h1>Şarkılar</h1>
       <hr>
 
-
-<div id="song-list"></div>
-  </div>
-
-  <script>
-    fetch('jsons/sarkilar.json')
-      .then(response => response.json())
-      .then(data => {
-        const container = document.getElementById('song-list');
-
-        data.forEach(song => {
-          const section = document.createElement('section');
-          section.innerHTML = `
-            <h3 class="song-title">${song.title}</h3>
-            <h4 class="song-subtitle">${song.artist}</h4>
-            <p class="song-tabs">
-              <a href="${song.tabUrl}" target="_blank">Tab</a>
-            </p>
-            <ul>
-              ${song.weeks.map(week => `
-                <li>${week.label}
-                  <audio controls src="${week.audio}"></audio>
-                </li>`).join('')}
-            </ul>
-            <h5>Başlıca Kullanılan Teknikler</h5>
-            <ul>
-              ${song.techniques.map(tech => `<li>${tech}</li>`).join('')}  
-            </ul>
-            <hr>
-          `;
-          container.appendChild(section);
-        });
-      })
-      .catch(err => {
-        document.getElementById('song-list').innerHTML = "<p>Şarkılar yüklenemedi.</p>";
-        console.error("Şarkı verileri yüklenemedi:", err);
-      });
-  </script>
-
-
+      <div id="song-list"></div>
     </div>
+
     <script>
-      // Sayfadaki tüm audio elementlerini seç
-      const audios = document.querySelectorAll("audio");
-    
-      audios.forEach(audio => {
-        audio.addEventListener("play", () => {
-          audios.forEach(otherAudio => {
-            if (otherAudio !== audio) {
-              otherAudio.pause();
-              otherAudio.currentTime = 0; // İsteğe bağlı: çalan şarkıyı başa sarar
-            }
+      fetch('jsons/sarkilar.json')
+        .then(response => response.json())
+        .then(data => {
+          const container = document.getElementById('song-list');
+
+          data.forEach(song => {
+            const section = document.createElement('section');
+            section.innerHTML = `
+              <h3 class="song-title">${song.title}</h3>
+              <h4 class="song-subtitle">${song.artist}</h4>
+              <p class="song-tabs">
+                <a href="${song.tabUrl}" target="_blank">Tab</a>
+              </p>
+              <ul>
+                ${song.weeks.map(week => `
+                  <li>${week.label}
+                    <audio controls src="${week.audio}"></audio>
+                  </li>`).join('')}
+              </ul>
+              <h5>Başlıca Kullanılan Teknikler</h5>
+              <ul>
+                ${song.techniques.map(tech => `<li>${tech}</li>`).join('')}
+              </ul>
+              <hr>
+            `;
+            container.appendChild(section);
           });
+
+         
+
+          // Now that all audio elements are in the DOM, select them and add event listeners
+          const audios = document.querySelectorAll("audio");
+
+          audios.forEach(audio => {
+            audio.addEventListener("play", () => {
+              audios.forEach(otherAudio => {
+                if (otherAudio !== audio) {
+                  otherAudio.pause();
+                  otherAudio.currentTime = 0; // Optional: rewinds the paused song to the beginning
+                }
+              });
+            });
+          });
+
+          // --- IMPORTANT CHANGE ENDS HERE ---
+
+        })
+        .catch(err => {
+          document.getElementById('song-list').innerHTML = "<p>Şarkılar yüklenemedi.</p>";
+          console.error("Şarkı verileri yüklenemedi:", err);
         });
-      });
     </script>
-    
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"

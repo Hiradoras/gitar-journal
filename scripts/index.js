@@ -35,3 +35,26 @@ fetch('jsons/riffs.json')
       container.appendChild(el);
     });
   });
+
+  //ayni anda calmama kontrolu
+  let currentlyPlayingAudioElement = null;
+
+// 'play' olayı document seviyesinde yakalanacak (capturing phase).
+// Bu, sayfadaki herhangi bir audio elementi çalmaya başladığında tetiklenir.
+document.addEventListener('play', function(event) {
+    // Olayın kaynağı (event.target) bir <audio> elementi mi diye kontrol et.
+    if (event.target.tagName === 'AUDIO') {
+        const newAudio = event.target; // Çalmaya başlayan yeni audio elementi.
+
+        // Eğer daha önce başka bir audio çalıyorsa VE bu yeni başlayan audio değilse,
+        // o zaman önceki audio'yu durdur.
+        if (currentlyPlayingAudioElement && currentlyPlayingAudioElement !== newAudio) {
+            currentlyPlayingAudioElement.pause();
+            // İsteğe bağlı: Önceki şarkıyı başa sarmak için.
+            currentlyPlayingAudioElement.currentTime = 0; 
+        }
+        
+        // Yeni çalmaya başlayan audio elementini "şu anda çalan" olarak ayarla.
+        currentlyPlayingAudioElement = newAudio;
+    }
+}, true); // 'true' parametresi olayın capturing phase'de yakalanmasını sağlar.
