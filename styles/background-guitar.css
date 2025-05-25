@@ -1,5 +1,5 @@
 .parallax-bg {
-  background-image: url('assets/img/guitar.png');
+  background-image: url('/assets/img/guitar.png');
   position: fixed;
   top: 0;
   right: 0;
