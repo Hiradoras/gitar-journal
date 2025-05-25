@@ -1,0 +1,38 @@
+[
+  {
+    "title": "The Trooper",
+    "artist": "Iron Maiden",
+    "tabUrl": "https://www.songsterr.com/a/wsa/iron-maiden-the-trooper-tab-s338",
+    "tabHtml": "templates/tablar/the_trooper.html",
+    "weeks": [
+      {
+        "label": "1. Hafta",
+        "audio": "audios/riffler/the_trooper_01.mp3"
+      }
+    ]
+  },
+  {
+    "title": "Sir",
+    "artist": "Pentagram",
+    "tabUrl": "https://www.songsterr.com/a/wsa/pentagram-sir-tab-s998755",
+    "tabHtml": "templates/tablar/sir.html",
+    "weeks": [
+      {
+        "label": "1. Hafta",
+        "audio": "audios/riffler/sir_01.mp3"
+      }
+    ]
+  },
+  {
+    "title": "Taşikardi",
+    "artist": "Kaptan Kadavra",
+    "tabUrl": "https://www.songsterr.com/a/wsa/kaptan-kadavra-tasikardi-tab-s1482557",
+    "tabHtml": "templates/tablar/tasikardi.html",
+    "weeks": [
+      {
+        "label": "1. Hafta",
+        "audio": "audios/riffler/tasikardi_01.mp3"
+      }
+    ]
+  }
+]

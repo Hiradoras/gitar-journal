@@ -24,92 +24,47 @@
     <div class="container">
       <h1>Şarkılar</h1>
       <hr>
-      <div class="audio-list">
-        <section>
-          <h3 class="song-title">Enter Sandman</h3>
-          <h4 class="song-subtitle">Metallica</h4>
-          <p class="song-tabs"><a href="https://www.songsterr.com/a/wsa/metallica-enter-sandman-tab-s19t2" target="_blank">Tab</a></p>
-          <ul>
-            <li>
-              1. Hafta
-              <audio controls src="audios/sarkilar/enter_sandman_01.mp3"></audio>
-            </li>
-            
-            <h5>Başlıca Kullanılan Teknikler</h5>
-            <ul>
-              <li>Palm Muting</li>
-              <li>Alternate Picking</li>
-              <li>Power Chords</li>
-              <li>Slides</li>
-            </ul>
-            
-          </ul>
-        </section>
-        <hr>
-        <section>
-        <h3 class="song-title">For Those Who Died Alone</h3>
-        <h4 class="song-subtitle">Pentagram</h4>
-        <p class="song-tabs"><a class="song-tabs" href="https://www.songsterr.com/a/wsa/pentagram-for-those-who-died-alone-tab-s15713" target="_blank">Tab</a></p>
-          <ul>
-            <li>
-              1. Hafta
-              <audio controls src="audios/sarkilar/ftwda_01.mp3"></audio>
-            </li>
-            
-            <h5>Başlıca Kullanılan Teknikler</h5>
-            <ul>
-              <li>Legato</li>
-              <li>Slides</li>
-            </ul>
-          </ul>
-        </section>
-        <hr>
-        <section>
-        <h3 class="song-title">Helal Olsun</h3>
-        <h4 class="song-subtitle">Duman</h4>
-        <p class="song-tabs"><a class="song-tabs" href="https://www.songsterr.com/a/wsa/duman-helal-olsun-tab-s64405" target="_blank">Tab</a></p>
-          <ul>
-            <li>
-              1. Hafta
-              <audio controls src="audios/sarkilar/helal_olsun_01.mp3"></audio>
-            </li>
-            
-            <h5>Başlıca Kullanılan Teknikler</h5>
-            <ul>
-              <li>Open Chords</li>
-              <li>Strumming</li>
-              <li>Slide Geçişler</li>
-              <li>Pentatonik Solo Ezgileri</li>
-              <li>Vibrato ve Bend</li>
-            </ul>
-            
-          </ul>
-        </section>
-        <hr>
-        <section>
-        <h3 class="song-title">Yaşamak İstemem</h3>
-        <h4 class="song-subtitle">Yavuz Çetin</h4>
-        <p class="song-tabs"><a class="song-tabs" href="https://www.songsterr.com/a/wsa/yavuz-cetin-yasamak-istemem-tab-s83692" target="_blank">Tab</a></p>
-          <ul>
-            <li>
-              1. Hafta
-              <audio controls src="audios/sarkilar/yasamak_istemem_01.mp3"></audio>
-            </li>
-            
-            <h5>Başlıca Kullanılan Teknikler</h5>
-            <ul>
-              <li>Bend</li>
-              <li>Vibrato</li>
-              <li>Minor Pentatonik Skala</li>
-              <li>Slide</li>
-            </ul>
-            
-          </ul>
-        </section>
 
-        
-      </div>
-      <!-- Diğer şarkılar de aynı yapıda eklenir -->
+
+<div id="song-list"></div>
+  </div>
+
+  <script>
+    fetch('jsons/sarkilar.json')
+      .then(response => response.json())
+      .then(data => {
+        const container = document.getElementById('song-list');
+
+        data.forEach(song => {
+          const section = document.createElement('section');
+          section.innerHTML = `
+            <h3 class="song-title">${song.title}</h3>
+            <h4 class="song-subtitle">${song.artist}</h4>
+            <p class="song-tabs">
+              <a href="${song.tabUrl}" target="_blank">Tab</a>
+            </p>
+            <ul>
+              ${song.weeks.map(week => `
+                <li>${week.label}
+                  <audio controls src="${week.audio}"></audio>
+                </li>`).join('')}
+            </ul>
+            <h5>Başlıca Kullanılan Teknikler</h5>
+            <ul>
+              ${song.techniques.map(tech => `<li>${tech}</li>`).join('')}  
+            </ul>
+            <hr>
+          `;
+          container.appendChild(section);
+        });
+      })
+      .catch(err => {
+        document.getElementById('song-list').innerHTML = "<p>Şarkılar yüklenemedi.</p>";
+        console.error("Şarkı verileri yüklenemedi:", err);
+      });
+  </script>
+
+
     </div>
     <script>
       // Sayfadaki tüm audio elementlerini seç

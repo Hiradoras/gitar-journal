@@ -21,76 +21,62 @@
           document.getElementById('navbar').innerHTML = data;
         });
     </script>
-    <div class="container">
-      <h1>Riffler</h1>
-      <hr>
-      <div class="audio-list">
-        <section>
-          <h3 class="song-title">The Trooper</h3>
-          <h5 class="song-subtitle">Iron Maiden</h5>
-          <div id="tab_the_trooper"></div>
-    <script>
-      fetch('templates/tablar/the_trooper.html')
-        .then(res => res.text())
-        .then(data => {
-          document.getElementById('tab_the_trooper').innerHTML = data;
+
+
+    <div class="audio-list" id="riff-container"></div>
+
+<script>
+  fetch('jsons/riffs.json')
+    .then(response => response.json())
+    .then(data => {
+      const container = document.getElementById('riff-container');
+
+      data.forEach(song => {
+        const section = document.createElement('section');
+
+        // Başlıklar
+        const title = `<h3 class="song-title">${song.title}</h3>`;
+        const artist = `<h5 class="song-subtitle">${song.artist}</h5>`;
+        const tabDivId = `tab_${song.title.toLowerCase().replaceAll(' ', '_')}`;
+        const tabDiv = `<div id="${tabDivId}"></div>`;
+
+        // Tab HTML'i dinamik yükleme scripti
+        const script = document.createElement('script');
+        script.textContent = `
+          fetch('${song.tabHtml}')
+            .then(res => res.text())
+            .then(data => {
+              document.getElementById('${tabDivId}').innerHTML = data;
+            });
+        `;
+
+        // Tab linki
+        const tabLink = `<p class="song-tabs"><a href="${song.tabUrl}" target="_blank">Tab</a></p>`;
+
+        // Haftalık kayıtlar
+        let weeksHTML = '<ul>';
+        song.weeks.forEach(week => {
+          weeksHTML += `
+            <li>
+              ${week.label}
+              <audio controls src="${week.audio}"></audio>
+            </li>
+          `;
         });
-    </script>
-    <p class="song-tabs"><a href="https://www.songsterr.com/a/wsa/iron-maiden-the-trooper-tab-s338" target="_blank">Tab</a></p>
-          <ul>
-            <li>
-              1. Hafta
-              <audio controls src="audios/riffler/the_trooper_01.mp3"></audio>
-            </li>
-          </ul>
-        </section>
+        weeksHTML += '</ul>';
 
-        <hr>
-        <section>
-          <h3 class="song-title">Sir</h3>
-          <h5 class="song-subtitle">Pentagram</h5>
-          <div id="tab_sir"></div>
-          <script>
-            fetch('templates/tablar/sir.html')
-            .then(res => res.text())
-            .then(data => {
-              document.getElementById('tab_sir').innerHTML = data;
-            });
-          </script>
-          <p class="song-tabs"><a href="https://www.songsterr.com/a/wsa/pentagram-sir-tab-s998755" target="_blank">Tab</a></p>
-          <ul>
-            <li>
-              1. Hafta
-              <audio controls src="audios/riffler/sir_01.mp3"></audio>
-            </li>
-          </ul>
-        </section>
+        // Section içeriğini birleştir
+        section.innerHTML = title + artist + tabDiv + tabLink + weeksHTML;
+        section.appendChild(script); // Scripti sonradan ekle
 
-        <hr>
-        <section>
-          <h3 class="song-title">Taşikardi</h3>
-          <h5 class="song-subtitle">Kaptan Kadavra</h5>
-          <div id="tab_tasikardi"></div>
-          <script>
-            fetch('templates/tablar/tasikardi.html')
-            .then(res => res.text())
-            .then(data => {
-              document.getElementById('tab_tasikardi').innerHTML = data;
-            });
-          </script>
-          <p class="song-tabs"><a href="https://www.songsterr.com/a/wsa/kaptan-kadavra-tasikardi-tab-s1482557" target="_blank">Tab</a></p>
-          <ul>
-            <li>
-              1. Hafta
-              <audio controls src="audios/riffler/tasikardi_01.mp3"></audio>
-            </li>
-          </ul>
-        </section>
+        // Bölmeyi ekle
+        container.appendChild(section);
 
-
-      </div>
-      <!-- Diğer riffler de aynı yapıda eklenir -->
-    </div>
+        // Ayırıcı çizgi
+        container.appendChild(document.createElement('hr'));
+      });
+    });
+</script>
     <script>
       // Sayfadaki tüm audio elementlerini seç
       const audios = document.querySelectorAll("audio");

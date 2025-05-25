@@ -1,0 +1,70 @@
+[
+  {
+    "title": "Enter Sandman",
+    "artist": "Metallica",
+    "tabUrl": "https://www.songsterr.com/a/wsa/metallica-enter-sandman-tab-s19t2",
+    "weeks": [
+      {
+        "label": "1. Hafta",
+        "audio": "audios/sarkilar/enter_sandman_01.mp3"
+      }
+    ],
+    "techniques": [
+      "Palm Muting",
+      "Alternate Picking",
+      "Power Chords",
+      "Slides"
+    ]
+  },
+    {
+    "title": "For Those Who Died Alone",
+    "artist": "Pentagram",
+    "tabUrl": "https://www.songsterr.com/a/wsa/pentagram-for-those-who-died-alone-tab-s15713",
+    "weeks": [
+      {
+        "label": "1. Hafta",
+        "audio": "audios/sarkilar/ftwda_01.mp3"
+      }
+    ],
+    "techniques": [
+      "Legato",
+      "Slides"
+    ]
+  },
+    {
+    "title": "Helal Olsun",
+    "artist": "Duman",
+    "tabUrl": "https://www.songsterr.com/a/wsa/duman-helal-olsun-tab-s64405",
+    "weeks": [
+      {
+        "label": "1. Hafta",
+        "audio": "audios/sarkilar/helal_olsun_01.mp3"
+      }
+    ],
+    "techniques": [
+      "Open Chords",
+      "Strumming",
+      "Slide Geçişler",
+      "Pentatonik Solo Ezgileri",
+      "Vibrato ve Bend"
+    ]
+  },
+    {
+    "title": "Yaşamak İstemem",
+    "artist": "Yavuz Çetin",
+    "tabUrl": "https://www.songsterr.com/a/wsa/yavuz-cetin-yasamak-istemem-tab-s83692",
+    "weeks": [
+      {
+        "label": "1. Hafta",
+        "audio": "audios/sarkilar/yasamak_istemem_01.mp3"
+      }
+    ],
+    "techniques": [
+      "Bend",
+      "Vibrato",
+      "Minor Pentatonik Skala",
+      "Slide"
+    ]
+  }
+  
+]
