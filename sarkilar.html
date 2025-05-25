@@ -44,7 +44,8 @@
               </p>
               <ul>
                 ${song.weeks.map(week => `
-                  <li>${week.label}
+                  <li>${week.label}<br>
+                    ${week.date}
                     <audio controls src="${week.audio}"></audio>
                   </li>`).join('')}
               </ul>

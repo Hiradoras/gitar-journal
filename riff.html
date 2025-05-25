@@ -61,7 +61,8 @@
               song.weeks.forEach(week => {
                 weeksHTML += `
                   <li>
-                    ${week.label}
+                    ${week.label}<br>
+                    ${week.date}
                     <audio controls src="${week.audio}"></audio>
                   </li>
                 `;

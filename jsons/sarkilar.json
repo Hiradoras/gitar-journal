@@ -6,6 +6,7 @@
     "weeks": [
       {
         "label": "1. Hafta",
+        "date": "18/05/2025",
         "audio": "audios/sarkilar/enter_sandman_01.mp3"
       }
     ],
@@ -23,6 +24,7 @@
     "weeks": [
       {
         "label": "1. Hafta",
+        "date": "21/05/2025",
         "audio": "audios/sarkilar/ftwda_01.mp3"
       }
     ],
@@ -38,6 +40,7 @@
     "weeks": [
       {
         "label": "1. Hafta",
+        "date": "22/05/2025",
         "audio": "audios/sarkilar/helal_olsun_01.mp3"
       }
     ],
@@ -56,6 +59,7 @@
     "weeks": [
       {
         "label": "1. Hafta",
+        "date": "23/05/2025",
         "audio": "audios/sarkilar/yasamak_istemem_01.mp3"
       }
     ],

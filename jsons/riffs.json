@@ -7,6 +7,7 @@
     "weeks": [
       {
         "label": "1. Hafta",
+        "date":"19/05/2025",
         "audio": "audios/riffler/the_trooper_01.mp3"
       }
     ]
@@ -19,6 +20,7 @@
     "weeks": [
       {
         "label": "1. Hafta",
+        "date":"25/05/2025",
         "audio": "audios/riffler/sir_01.mp3"
       }
     ]
@@ -31,6 +33,7 @@
     "weeks": [
       {
         "label": "1. Hafta",
+        "date":"25/05/2025",
         "audio": "audios/riffler/tasikardi_01.mp3"
       }
     ]
