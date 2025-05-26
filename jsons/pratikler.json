@@ -1,0 +1,99 @@
+[
+  {
+    "title": "ISINMA & KOORDİNASYON",
+    "subtitle": "1234 Chromatic Exercise",
+    "tab": "templates/pratik-tablar/isinma.html",
+    "aciklamalar": [
+        "• Her telde 1-2-3-4 (örnek: 5. perde - 6 - 7 - 8)",
+        "• Alternate picking (down-up-down-up)",
+        "• Tüm tellerde yukarı ve sonra geri aşağı",
+        "• Günde 5 dakika yavaş (60 bpm), 5 dakika zorlayıcı (örneğin 90–120 bpm)"
+    ],
+    "amac": "Sol el parmak açıklığı + sağ el koordinasyonu",
+    "weeks": [
+      {
+        "label": "1. Hafta",
+        "date": "60bpm 26/05/2025",
+        "audio": "audios/pratikler/isinma/60_bpm_isinma_01.mp3"
+      },{
+        "label": "1. Hafta",
+        "date": "90bpm 26/05/2025",
+        "audio": "audios/pratikler/isinma/90_bpm_isinma_01.mp3"
+      }
+    ]
+  },
+  {
+    "title": "BPM ARTIŞI İÇİN EGZERSİZLER",
+    "subtitle": "Single String Speed Drill",
+    "tab": "",
+    "aciklamalar": [
+        "• Sadece 1 telde tek nota (örneğin 5. perde), alternate picking",
+        "• 10 saniye boyunca en hızlı şekilde çal, 20 saniye dinlen",
+        "• 5 set yap, her sette bpm’i 5 artır",
+        "• Sonra farklı tellere geç (özellikle 3. ve 2. tel)"
+    ],
+    "amac": "Saf sağ el hız kontrolü ve kas hafızası",
+    "weeks": [
+      {
+        "label": "1. Hafta",
+        "date": "",
+        "audio": ""
+      }
+    ]
+  },
+  {
+    "title": "SOL EL KONTROLÜ",
+    "subtitle": "Spider Exercise (1-3-2-4)",
+    "tab": "",
+    "aciklamalar": [
+        "• 1. ve 3. parmak ile 1. tel: 5–7",
+        "• Sonra 2. ve 4. parmak ile aynı tel: 6–8",
+        "• Sonra 2. tele geç, aynı dizilim",
+        "• Metronomla başla (örnek 70 bpm)"
+    ],
+    "amac": "Parmaklar arası bağımsızlık + hız",
+    "weeks": [
+      {
+        "label": "1. Hafta",
+        "date": "",
+        "audio": ""
+      }
+    ]
+  },
+  {
+    "title": "STRING SKIPPING VE HIZLI HAREKETLER",
+    "subtitle": "String Skipping Arpeggio",
+    "tab": "",
+    "aciklamalar": [
+        "• 5. perde (6. tel), 7. perde (4. tel), 8. perde (2. tel) gibi sıçramalı arpejler",
+        "• Alternate picking, 8’lik veya 16’lık notalarla çal",
+        "• Günde 5 dakika temiz, 5 dakika hız denemesi"
+    ],
+    "amac": "Sağ el hedefleme + fretboard algısı",
+    "weeks": [
+      {
+        "label": "1. Hafta",
+        "date": "",
+        "audio": ""
+      }
+    ]
+  }
+  ,
+  {
+    "title": "LICK & LEGATO (HIZLI ÇALMA)",
+    "subtitle": "Paul Gilbert Lick",
+    "tab": "templates/pratik-tablar/paul-gilbert-lick.html",
+    "aciklamalar": [
+        "• Alternate + legato karışımı",
+        "• Temiz çalım > hız"
+    ],
+    "amac": "Gerçek müzikal örnekle hız ve teknik kazancı",
+    "weeks": [
+      {
+        "label": "1. Hafta",
+        "date": "",
+        "audio": ""
+      }
+    ]
+  }
+]
