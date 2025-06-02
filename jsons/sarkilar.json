@@ -91,6 +91,29 @@
       "Temiz Akorlar ve Sustain Kullanımı",
       "Palm Muting"
     ]
+  },
+    {
+    "title": "Ah",
+    "artist": "Duman",
+    "spotify":"<iframe style='border-radius:12px' src='https://open.spotify.com/embed/track/3Cy35QXC9KNPtpoV4gh8Ve?utm_source=generator' width='100%' height='152' frameBorder='0' allowfullscreen='' allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture' loading='lazy'></iframe>",
+    "tabUrl": "https://www.songsterr.com/a/wsa/duman-ah-tab-s30550t0",
+    "weeks": [
+      {
+        "label": "Komple",
+        "date": "02/06/2025",
+        "audio": "audios/sarkilar/AH_KOMPLE.MP3"
+      },
+      {
+        "label": "Solo",
+        "date": "02/06/2025",
+        "audio": "audios/sarkilar/AH_SOLO.MP3"
+      }
+    ],
+    "techniques": [
+      "Arpej",
+      "Temiz Akorlar ve Sustain Kullanımı",
+      "Palm Muting"
+    ]
   }
   
 ]
